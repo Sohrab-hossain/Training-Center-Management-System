@@ -1,0 +1,40 @@
+1. enctype="multipart/form-data" 
+	example: <form method="post" action="" enctype="multipart/form-data">
+
+2. file dhorar jonno $_FILES[] use korte hobe.
+	example: $syllabus = $_FILES["syllabus"];
+
+3. validation a array type a check korte hobe.
+example: 
+	if($syllabus["name"] == "")
+	{
+		$er++;
+		$esyllabus = "Required";
+	}
+
+4. insert korar khetre:
+	example: '".mysqli_real_escape_string($cn,$syllabus["name"])."'
+
+5. file er derection dekhiye deyar jonno jekhane file ta save hobe.
+	example: suppose ami project er vitor uploads name a 1ta folder create kore oi file er vitor syllabus name a r 1ta folder create kori. then----
+			$sp = $syllabus["tmp_name"];
+			$dp = "uploads/syllabus/".$syllabus["name"];
+			move_uploaded_file($sp, $dp);
+ekhon file name jate same na hoy se jonno name er age id set korte hobe r se jonno mysqli_insert_id($cn) function use korte hobe. example: $dp = "uploads/syllabus/".mysqli_insert_id($cn).$syllabus["name"];
+
+full code: 	if(mysqli_query($cn,$sql))
+		{
+			$sp = $syllabus["tmp_name"];
+			$dp = "uploads/syllabus/".mysqli_insert_id($cn)."_".$syllabus["name"];
+			move_uploaded_file($sp, $dp);
+			
+			print '<span class="successMessage">Course Inserted to System</span>';
+			
+			$name = "";
+			$syllabus = "";
+		}
+		else 
+		{
+			print '<span class="errorMessage">'.mysqli_error($cn).'</span>';
+		}
+

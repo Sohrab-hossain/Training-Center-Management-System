@@ -1,0 +1,11 @@
+Like this for the server ip:
+
+	$_SERVER['SERVER_ADDR'];
+
+and this for the port:
+
+	$_SERVER['SERVER_PORT'];
+
+
+I am facing an issue with $_SERVER['REMOTE_ADDR'] in PHP It is giving a IPv6 like value even though the server is using IPv4.
+	$_SERVER['REMOTE_ADDR'];

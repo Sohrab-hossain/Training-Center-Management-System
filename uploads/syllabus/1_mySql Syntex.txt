@@ -1,0 +1,128 @@
+create table country
+(
+    id int auto_increment primary key,
+    name varchar(200)
+    
+)
+
+create table city
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    countryId int,
+    foreign key (countryId) references country(id)
+)
+
+create table department
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    description varchar (500)
+)
+
+create table course
+(
+    id int auto_increment primary key,
+    name varchar (500) unique,
+    description varchar (8000),	
+    fee float,
+    duration int,
+    syllabus varchar (500),
+    website varchar (500),
+    departmentId int,
+    foreign key(departmentId) references department(id)
+)
+
+create table student
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    regNo varchar (12) unique,
+    tag varchar (200),
+    contact varchar (50) unique,
+    email varchar (50) unique,
+    password varchar (500),
+    gender int,
+    dateOfBirth date,
+    address varchar (500),
+    createDate date,
+    createIp varchar (200),
+    cityId int,
+    foreign key (cityId) references city(id)
+)
+
+create table student_cv
+(
+    studentId int primary key,
+    cv varchar (500),
+    foreign key (studentId) references student (id)
+)
+
+create table student_image
+(
+    id int auto_increment primary key,
+    studentId int,
+    image varchar (500),
+    date date,
+    title varchar (500),
+    foreign key (studentId) references student(id)
+)
+
+create table student_course
+(
+    studentId int,
+    courseId int,
+    date date,
+    remarks varchar (500),
+    foreign key (studentId) references student(id),
+    foreign key (courseId) references course(id),
+    primary key (studentId, courseId)
+)
+
+SELECT city.id, city.name, country.name as country
+FROM city,country
+
+SELECT city.id, city.name, country.name as country FROM city,country WHERE city.countryId = country.id
+
+INSERT INTO department (name, description) VALUES ('CSE', 'Dhaka City College');
+
+SELECT course.id, course.name, course.fee, course.duration, department.id as department, course.description, course.syllabus, course.website  FROM course, department WHERE course.departmentId = department.id;
+
+
+" select s.id, s.name, s.regNo, s.tag, s.contact, s.email, s.gender, s.dateOfBirth, s.address, ct.name as city, cn.name as country, s.createIp, s.createDate from student as s
+left join city as ct on s.cityId = ct.id
+left join country as cn on ct.id = cn.id " ;
+
+
+" select s.name as student, s.email, c.name as course, sc.date, sc.remarks
+from studentcourse as sc
+left join student as s on sc.studentId = s.id
+left join course as c on sc.courseId = c.id ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

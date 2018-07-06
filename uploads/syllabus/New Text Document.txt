@@ -1,0 +1,74 @@
+create table country
+(
+    id int auto_increment primary key,
+    name varchar(200)
+    
+)
+
+create table city
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    countryId int,
+    foreign key (countryId) references country(id)
+)
+
+create table student
+(
+    id int auto_increment primary key,
+    regNo varchar (12) unique,
+    name varchar (200),
+    email varchar (200) unique,
+    contact varchar (200) unique,
+    address varchar (500),
+    cityId int,
+    foreign key (cityId) references city(id)
+)
+
+create table department
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    description varchar (500)
+)
+
+create table course
+(
+    id int auto_increment primary key,
+    name varchar (200),
+    fee float,
+    duration int,
+    departmentId int,
+    foreign key(departmentId) references department(id)
+)
+
+
+create table course
+(
+    id int auto_increment primary key,
+    name varchar (500) unique,
+    description varchar (8000),	
+    fee float,
+    duration int,
+    syllabus varchar (500),
+    website varchar (500),
+    departmentId int,
+    foreign key(departmentId) references department(id)
+)
+
+
+create table studentCourse
+(
+    studentId int,
+    courseId int,
+    date date,
+    foreign key (studentId) references student(id),
+    foreign key (courseId) references course(id)   
+)
+
+SELECT city.id, city.name, country.name as country
+FROM city,country
+
+SELECT city.id, city.name, country.name as country FROM city,country WHERE city.countryId = country.id
+
+INSERT INTO department (name, description) VALUES ('CSE', 'Dhaka City College');

@@ -1,0 +1,17 @@
+table
+{
+	min-width: 600px;
+	border: thin solid silver;
+	margin: 5px;
+	float: left;
+}
+td
+{
+	border-right: thin solid rgba(114,100,25,0.30);
+	border-bottom: thin solid rgba(114,100,25,0.30);
+}
+th
+{
+	border-right: thin solid rgba(114,100,25,0.30);
+	border-bottom: thin solid rgba(114,100,25,0.30);
+}

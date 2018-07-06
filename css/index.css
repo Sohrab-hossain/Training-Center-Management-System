@@ -1,0 +1,120 @@
+
+*
+{
+	margin: 0 auto 0 auto;
+}
+
+
+body
+{
+	/* background-image: url(../images/backgroundFull.jpg); 
+	*/
+	background: rgba(137,163,158,0.53);
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	font-size: 14px;	
+}
+
+.mainBody
+{
+	
+}
+.header
+{
+	height: 130px;
+	background: rgba(98,38,38,0.81);
+	border-bottom: thin solid white;
+	overflow: hidden;
+}
+.header img
+{
+	height: inherit;
+	float: left;
+}
+.header div
+{
+	width: 550px;
+	float: left;
+	padding-left: 30px;
+}
+.header h1
+{
+	font-size: 40px;
+	line-height: 10px;
+	color: aqua;
+	margin-top: 20px;
+}
+.header p
+{
+	font-size: 15px;
+	color: floralwhite;
+	margin-top: 20px
+}
+/* End of header css. */
+
+
+/* Start main Content */
+.main
+{
+	width: 1100px;
+	border: thin solid white;
+}
+
+.menu
+{
+	height: 40px;
+	background: rgba(125,136,187,0.88);
+	text-align: right;
+}
+.menu a
+{
+	text-decoration: none;
+	color:white;
+	font-size: 15px;
+	background: black;
+	padding: 5px;
+	display: inline-block;
+}
+
+.content
+{
+	background: rgba(180,144,188,0.64);
+	padding: 10px;
+	height: auto;
+	min-height: 550px;
+	overflow: hidden;
+}
+.pageTitle
+{
+	padding: 10px 10px 10px 2px;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,36,255,1.00);
+	display: block;
+}
+
+
+
+/* footer all css below */
+.footer
+{
+	height: 80px;
+	background: rgba(98,38,38,0.81);
+	border-top: thin solid white;
+	overflow: hidden;	
+}
+.left
+{
+	float: left;
+}
+.right
+{
+	float: right;
+	padding-right: 10px;
+	
+}
+
+hl
+{
+	background: rgba(213,212,37,0.87);
+	font-weight: bold;
+}
